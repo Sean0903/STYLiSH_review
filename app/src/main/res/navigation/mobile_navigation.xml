@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.sean.stylish_review.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.sean.stylish_review.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile"/>
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.sean.stylish_review.cart.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart"/>
+
+    <fragment
+        android:id="@+id/catalogFragment"
+        android:name="com.sean.stylish_review.catalog.CatalogFragment"
+        android:label="CatalogFragment"
+        tools:layout="@layout/fragment_catalog"/>
+
+</navigation>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity_main"
+            type="com.sean.stylish_review.MainActivity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/home_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:background="@color/white"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/home_drawer"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="320dp"
+            app:layout_constraintEnd_toEndOf="@+id/home_toolbar"
+            app:layout_constraintHorizontal_bias="0.406"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icons_24px_drawer"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="320dp" />
+
+        <ImageView
+            android:id="@+id/home_toolbar_image"
+            android:layout_width="128dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="124dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginEnd="108dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/image_logo01"
+            android:layout_marginLeft="124dp"
+            android:layout_marginRight="108dp" />
+
+        <fragment
+            android:id="@+id/home_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/navigation"
+            app:layout_constraintTop_toBottomOf="@+id/home_toolbar"
+            app:navGraph="@navigation/mobile_navigation"/>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:itemHorizontalTranslationEnabled="false"
+            app:labelVisibilityMode="unlabeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/button_navigation"
+            app:itemIconTint="@color/black"
+            app:itemIconSize="36dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

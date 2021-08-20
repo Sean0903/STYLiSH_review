@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="itemMultiple"
+            type="com.sean.stylish_review.data.Product" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/homeMultipleImage1"
+            android:layout_width="0dp"
+            android:layout_height="162dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/image_placeholder" />
+
+        <ImageView
+            android:id="@+id/homeMultipleImage2"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintStart_toEndOf="@+id/homeMultipleImage1"
+            app:layout_constraintTop_toTopOf="@+id/homeMultipleImage1"
+            app:srcCompat="@drawable/image_placeholder"/>
+
+        <ImageView
+            android:id="@+id/homeMultipleImage3"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/homeMultipleImage1"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintStart_toEndOf="@+id/homeMultipleImage1"
+            app:srcCompat="@drawable/image_placeholder" />
+
+        <ImageView
+            android:id="@+id/homeMultipleImage4"
+            android:layout_width="0dp"
+            android:layout_height="162dp"
+            android:layout_marginStart="262dp"
+            android:layout_marginLeft="262dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/homeMultipleImage1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/homeMultipleImage1"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/image_placeholder"/>
+
+        <TextView
+            android:id="@+id/homeMultipleText1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/noto_sans"
+            android:text="活力花紋長筒牛仔褲"
+            android:textColor="#3f3a3a"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeMultipleImage1"
+            tools:text="活力花紋長筒牛仔褲"/>
+
+        <TextView
+            android:id="@+id/homeMultipleText2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/noto_sans"
+            android:text="厚薄:薄"
+            android:textColor="#646464"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeMultipleText1"
+            tools:text="厚薄:薄"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
