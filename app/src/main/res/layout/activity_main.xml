@@ -47,12 +47,27 @@
             android:layout_marginStart="124dp"
             android:layout_marginTop="42dp"
             android:layout_marginEnd="108dp"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/image_logo01"
             android:layout_marginLeft="124dp"
             android:layout_marginRight="108dp" />
+
+        <TextView
+            android:id="@+id/toolbar_text"
+            style="@style/style_profile_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.046" />
 
         <fragment
             android:id="@+id/home_fragment"

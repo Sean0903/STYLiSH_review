@@ -16,9 +16,10 @@ class ProfileFragment: Fragment() {
     ): View? {
         val binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-//        if (activity is MainActivity) {
-//            (activity as MainActivity).changeTextTitle("個人")
-//        }
+        if (activity is MainActivity) {
+            (activity as MainActivity).changeToolbarTitle("個人")
+        }
+
         return binding.root
     }
 }

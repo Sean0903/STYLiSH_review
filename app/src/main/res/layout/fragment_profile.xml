@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
-            name="profileFragment"
+            name="profilePage"
             type="com.sean.stylish_review.profile.ProfileFragment" />
+
 
     </data>
 
@@ -13,15 +15,416 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="profile"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profile_bar"
+            android:layout_width="0dp"
+            android:layout_height="92dp"
+            android:background="#3F3A3A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread">
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:foregroundGravity="center"
+                android:src="@drawable/icons_36px_profile_normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:gravity="center"
+                android:text="AKA小安老師"
+                android:textColor="#D3CECE"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/profile_image"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/pageOfProfile"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/profile_bar"
+            app:layout_constraintVertical_chainStyle="spread">
+
+            <TextView
+                android:id="@+id/my_order_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/noto_sans"
+                android:text="我的訂單"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:fontFamily="@font/noto_sans" />
+
+            <LinearLayout
+                android:id="@+id/awaiting_payment_button"
+                android:layout_width="@dimen/profile_button_width"
+                android:layout_height="@dimen/profile_button_height"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/awaiting_shipment_button"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_order_text">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    app:srcCompat="@drawable/icons_24px_awaitingpayment" />
+
+                <TextView
+                    style="@style/style_profile_text"
+                    android:text="待付款" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/awaiting_shipment_button"
+                android:layout_width="@dimen/profile_button_width"
+                android:layout_height="@dimen/profile_button_height"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/shipped_button"
+                app:layout_constraintStart_toEndOf="@+id/awaiting_payment_button"
+                app:layout_constraintTop_toTopOf="@+id/awaiting_payment_button">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    app:srcCompat="@drawable/icons_24px_awaitingshipment" />
+
+                <TextView
+                    style="@style/style_profile_text"
+                    android:layout_width="45dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="8dp"
+                    android:text="待出貨" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/shipped_button"
+                android:layout_width="@dimen/profile_button_width"
+                android:layout_height="@dimen/profile_button_height"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/awaiting_review_button"
+                app:layout_constraintStart_toEndOf="@+id/awaiting_shipment_button"
+                app:layout_constraintTop_toTopOf="@+id/awaiting_shipment_button">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    app:srcCompat="@drawable/icons_24px_shipped" />
+
+                <TextView
+                    style="@style/style_profile_text"
+                    android:layout_width="45dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="8dp"
+                    android:text="待簽收" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/awaiting_review_button"
+                android:layout_width="@dimen/profile_button_width"
+                android:layout_height="@dimen/profile_button_height"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/exchange_button"
+                app:layout_constraintStart_toEndOf="@+id/shipped_button"
+                app:layout_constraintTop_toTopOf="@+id/shipped_button">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    app:srcCompat="@drawable/icons_24px_awaitingreview" />
+
+                <TextView
+                    style="@style/style_profile_text"
+                    android:layout_width="45dp"
+                    android:layout_height="19dp"
+                    android:text="待評價" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/exchange_button"
+                android:layout_width="@dimen/profile_button_width"
+                android:layout_height="@dimen/profile_button_height"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/awaiting_review_button"
+                app:layout_constraintTop_toTopOf="@+id/awaiting_review_button">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    app:srcCompat="@drawable/icons_24px_exchange" />
+
+                <TextView
+                    style="@style/style_profile_text"
+                    android:layout_width="45dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="8dp"
+                    android:text="退換貨" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/more_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="更多服務"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/awaiting_payment_button" />
+
+            <LinearLayout
+                android:id="@+id/starred_button"
+                android:layout_width="@dimen/profile_button_width"
+                android:layout_height="@dimen/profile_button_height"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/notification_button"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/more_service">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/icons_24px_starred" />
+
+                <TextView
+                    style="@style/style_profile_text"
+                    android:layout_width="30dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="收藏" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/notification_button"
+                android:layout_width="@dimen/profile_button_width"
+                android:layout_height="@dimen/profile_button_height"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/refunded_button"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@+id/starred_button"
+                app:layout_constraintTop_toTopOf="@+id/starred_button">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/icons_24px_notification" />
+
+                <TextView
+                    style="@style/style_profile_text"
+                    android:layout_width="60dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="貨到通知" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/refunded_button"
+                android:layout_width="@dimen/profile_button_width"
+                android:layout_height="@dimen/profile_button_height"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/address_button"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@+id/notification_button"
+                app:layout_constraintTop_toTopOf="@+id/notification_button">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/icons_24px_refunded" />
+
+                <TextView
+                    style="@style/style_profile_text"
+                    android:layout_width="60dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="帳戶退款" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/address_button"
+                android:layout_width="@dimen/profile_button_width"
+                android:layout_height="@dimen/profile_button_height"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/refunded_button"
+                app:layout_constraintTop_toTopOf="@+id/refunded_button">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/icons_24px_address" />
+
+                <TextView
+                    style="@style/style_profile_text"
+                    android:layout_width="30dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="地址" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/customer_service_button"
+                android:layout_width="@dimen/profile_button_width"
+                android:layout_height="@dimen/profile_button_height"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/system_feedback_button"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/starred_button">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/icons_24px_customerservice" />
+
+                <TextView
+                    style="@style/style_profile_text"
+                    android:layout_width="60dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="客服訊息" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/system_feedback_button"
+                android:layout_width="@dimen/profile_button_width"
+                android:layout_height="@dimen/profile_button_height"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/register_cellphone_button"
+                app:layout_constraintStart_toEndOf="@+id/customer_service_button"
+                app:layout_constraintTop_toTopOf="@+id/customer_service_button">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/icons_24px_systemfeedback" />
+
+                <TextView
+                    style="@style/style_profile_text"
+                    android:layout_width="60dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="系統回饋" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/register_cellphone_button"
+                android:layout_width="@dimen/profile_button_width"
+                android:layout_height="@dimen/profile_button_height"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/settings_button"
+                app:layout_constraintStart_toEndOf="@+id/system_feedback_button"
+                app:layout_constraintTop_toTopOf="@+id/system_feedback_button">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/icons_24px_registercellphone" />
+
+                <TextView
+                    style="@style/style_profile_text"
+                    android:layout_width="60dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="手機綁定" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/settings_button"
+                android:layout_width="@dimen/profile_button_width"
+                android:layout_height="@dimen/profile_button_height"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/register_cellphone_button"
+                app:layout_constraintTop_toTopOf="@+id/register_cellphone_button">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/icons_24px_settings" />
+
+                <TextView
+                    style="@style/style_profile_text"
+                    android:layout_width="30dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="設定" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="查看全部 >"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/my_order_text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
