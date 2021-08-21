@@ -30,7 +30,6 @@ class HomeFragment: Fragment() {
         dataList.add(DataItem.Header("2018早冬新品"))
         dataList.add(DataItem.Multiple("霧面框框牛皮帶","精選霧面金屬框，展現百變造型風格"))
 
-
         val adapter = HomeAdapter()
         binding.homeRecyclerview.adapter = adapter
         adapter.submitList(dataList)

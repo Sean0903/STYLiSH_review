@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="itemHeader" type="com.sean.stylish_review.home.DataItem" />
+        <variable name="itemHeader" type="com.sean.stylish_review.home.DataItem.Header" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
