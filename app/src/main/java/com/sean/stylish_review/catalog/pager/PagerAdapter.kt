@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.sean.stylish_review.cart.CartFragment
+import com.sean.stylish_review.catalog.CatalogFragment
 import com.sean.stylish_review.home.HomeFragment
 
 
@@ -15,7 +16,7 @@ class PagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {
         when (position) {
             ONE -> {
-                return CartFragment()
+                return CatalogFragment()
             }
             TWO -> {
                 return HomeFragment()
