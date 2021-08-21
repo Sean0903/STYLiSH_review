@@ -25,15 +25,11 @@ class CatalogViewModel : ViewModel() {
 
     val newPage = MutableLiveData<Int?>()
 
-    init {
-        getProperties()
-    }
-
-    fun getProperties() {
+    fun getProperties(type: String) {
         coroutineScope.launch {
 
             try {
-                val result = StylishApi.retrofitService.getProductsWomen(null)
+                val result = StylishApi.retrofitService.getCatalogList(type,null)
                 _products.value = result.data
                 getNextPage = result.data
                 newPage.value = result.nextPaging
@@ -43,11 +39,11 @@ class CatalogViewModel : ViewModel() {
         }
     }
 
-    fun getNextPage() {
+    fun getNextPage(type: String) {
         coroutineScope.launch {
 
             try {
-                val result = StylishApi.retrofitService.getProductsWomen("1")
+                val result = StylishApi.retrofitService.getCatalogList(type, newPage.value.toString())
                 val getNewPageData = result.data
                 _products.value = getNextPage + getNewPageData
                 newPage.value = result.nextPaging

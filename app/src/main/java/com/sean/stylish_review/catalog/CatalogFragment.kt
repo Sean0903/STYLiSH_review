@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sean.stylish_review.databinding.FragmentCatalogBinding
 
-class CatalogFragment: Fragment() {
+class CatalogFragment(val type: String): Fragment() {
 
     lateinit var binding: FragmentCatalogBinding
 
@@ -34,11 +34,13 @@ class CatalogFragment: Fragment() {
         })
 
         binding.SwipeRefresh.setOnRefreshListener {
-            viewModel.getProperties()
+            viewModel.getProperties(type)
             binding.SwipeRefresh.isRefreshing = false
         }
 
         observeEndOfPage()
+
+        viewModel.getProperties(type)
 
         return binding.root
     }
@@ -49,7 +51,7 @@ class CatalogFragment: Fragment() {
                 super.onScrolled(recyclerView, dx, dy)
 
                 if (!recyclerView.canScrollVertically(1) && viewModel.newPage.value != null) {
-                    viewModel.getNextPage()
+                    viewModel.getNextPage(type)
                 }
             }
         })

@@ -7,6 +7,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 private const val  BASE_URL = "https://api.appworks-school.tw/api/1.0/"
@@ -31,7 +32,14 @@ interface StylishApiService {
 
     @GET("marketing/hots")
     suspend fun getMarketingHots(): MarketingHotsResult
+//
+//    @GET("products/women")
+//    suspend fun getCatalogList(@Path("catalogType") type: String?,
+//                               @Query("paging") paging: String? = null
+//    ): CatalogListResult
 
-    @GET("products/women")
-    suspend fun getProductsWomen(@Query("paging") type: String?):CatalogListResult
+    @GET("products/{catalogType}")
+    suspend fun getCatalogList(@Path("catalogType") type: String?,
+                               @Query("paging") paging: String? = null
+    ): CatalogListResult
 }
