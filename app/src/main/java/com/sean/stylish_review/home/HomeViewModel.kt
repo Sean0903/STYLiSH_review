@@ -24,7 +24,7 @@ class HomeViewModel: ViewModel() {
         getProperties()
     }
 
-    private fun getProperties() {
+    fun getProperties() {
         coroutineScope.launch {
 
             try {

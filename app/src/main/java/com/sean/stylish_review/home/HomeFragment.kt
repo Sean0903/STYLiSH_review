@@ -34,6 +34,11 @@ class HomeFragment: Fragment() {
                 adapter.submitList(it)
         })
 
+        binding.SwipeRefresh.setOnRefreshListener {
+            viewModel.getProperties()
+            binding.SwipeRefresh.isRefreshing = false
+        }
+
         return binding.root
     }
 }
