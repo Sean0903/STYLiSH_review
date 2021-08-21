@@ -30,6 +30,16 @@ data class MarketingHotsResult(
     }
 }
 
+//拿取資料的格式
+@Parcelize
+data class CatalogListResult(
+    val data: List<Product>,
+    @Json(name = "next_paging")
+    val nextPaging: Int? = null
+) : Parcelable
+
+
+@Parcelize
 data class Product(
     val id : Long,
     val title : String,
@@ -44,23 +54,29 @@ data class Product(
     val sizes : List<String>,
     val variants : List<Variant>,
     @Json(name = "main_image")
-    val main_image : String,
+    val mainImage : String,
     val images : List<String>
-)
+): Parcelable {
+    val priceString
+        get() = "$$price"
+}
 
+@Parcelize
 data class Color(
     val code: String,
     val name: String
-)
+) : Parcelable
 
+@Parcelize
 data class Variant(
     @Json(name = "color_code")
     val color_code : String,
     val size : String,
     val stock : Int
-)
+) : Parcelable
 
+@Parcelize
 data class Hots(
     val title : String,
     val products : List<Product>  //product 的話會接不到資料，因為跟Api的格式不一樣
-)
+) : Parcelable

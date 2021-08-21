@@ -13,20 +13,13 @@ private val TWO = 1
 private val THREE = 2
 
 class PagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+
     override fun getItem(position: Int): Fragment {
-        when (position) {
-            ONE -> {
-                return CatalogFragment()
-            }
-            TWO -> {
-                return HomeFragment()
-            }
-            THREE -> {
-                return CartFragment()
-            }
-            else -> {
-                return HomeFragment()
-            }
+        return when (position) {
+            ONE -> CatalogFragment()
+            TWO -> HomeFragment()
+            THREE -> CartFragment()
+            else ->  HomeFragment()
         }
     }
 

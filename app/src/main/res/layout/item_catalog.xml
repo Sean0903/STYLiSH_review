@@ -4,7 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <variable
+            name="product"
+            type="com.sean.stylish_review.network.Product" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,6 +26,7 @@
             app:layout_constraintVertical_chainStyle="spread_inside"
             android:layout_marginRight="8dp"
             android:layout_marginLeft="8dp"
+            app:imageUrl="@{product.mainImage}"
             app:srcCompat="@drawable/image_placeholder" />
 
         <TextView
@@ -33,7 +36,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/noto_sans"
-            android:text=""
+            android:text="@{product.title}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +50,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/noto_sans"
-            android:text=""
+            android:text="@{String.valueOf(product.priceString)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_name_text"
