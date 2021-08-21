@@ -30,4 +30,9 @@ class MainActivity : AppCompatActivity() {
         binding.toolbarText.visibility = VISIBLE
         binding.toolbarText.text = Title
     }
+
+    fun stylishLogo(){
+        binding.homeToolbarImage.visibility = VISIBLE
+        binding.toolbarText.visibility = GONE
+    }
 }

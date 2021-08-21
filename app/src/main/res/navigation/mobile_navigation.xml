@@ -22,11 +22,9 @@
         android:name="com.sean.stylish_review.cart.CartFragment"
         android:label="CartFragment"
         tools:layout="@layout/fragment_cart"/>
-
     <fragment
         android:id="@+id/catalogFragment"
-        android:name="com.sean.stylish_review.catalog.CatalogFragment"
-        android:label="CatalogFragment"
-        tools:layout="@layout/fragment_catalog"/>
+        android:name="com.sean.stylish_review.catalog.pager.PagerFragment"
+        android:label="PagerFragment" />
 
 </navigation>

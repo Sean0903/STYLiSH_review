@@ -1,4 +1,4 @@
-package com.sean.stylish_review.catalog
-
-class CatalogAdapter {
-}
+//package com.sean.stylish_review.catalog
+//
+//class CatalogAdapter {
+//}

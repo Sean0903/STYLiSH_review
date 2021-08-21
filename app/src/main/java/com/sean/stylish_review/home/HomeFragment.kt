@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.sean.stylish_review.MainActivity
 import com.sean.stylish_review.databinding.FragmentHomeBinding
 
 class HomeFragment: Fragment() {
@@ -37,6 +38,10 @@ class HomeFragment: Fragment() {
         binding.SwipeRefresh.setOnRefreshListener {
             viewModel.getProperties()
             binding.SwipeRefresh.isRefreshing = false
+        }
+
+        if (activity is MainActivity) {
+            (activity as MainActivity).stylishLogo()
         }
 
         return binding.root

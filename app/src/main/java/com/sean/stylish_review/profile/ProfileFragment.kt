@@ -1,6 +1,7 @@
 package com.sean.stylish_review.profile
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,7 @@ class ProfileFragment: Fragment() {
         val binding = FragmentProfileBinding.inflate(inflater, container, false)
 
         if (activity is MainActivity) {
+            Log.d("11111","22222")
             (activity as MainActivity).changeToolbarTitle("個人")
         }
 
