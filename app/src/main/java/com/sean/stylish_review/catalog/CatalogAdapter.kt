@@ -11,19 +11,21 @@ import com.sean.stylish_review.network.Product
 
 class CatalogAdapter() : ListAdapter<Product, CatalogAdapter.PagerViewHolder>(DiffCallback()) {
 
+    class PagerViewHolder(var binding: ItemCatalogBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(product: Product) {
+            //呼叫ItemCatalog並指向Product這個data class
+            binding.product = product
+            binding.executePendingBindings()
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerViewHolder {
         return PagerViewHolder(ItemCatalogBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
+        //呼叫ViewHolder的bind方法，將資料與對應位置的ViewHolder進行綁定
         holder.bind(getItem(position))
-    }
-
-    class PagerViewHolder(var binding: ItemCatalogBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(product: Product) {
-            binding.product = product
-            binding.executePendingBindings()
-        }
     }
 
     class DiffCallback : DiffUtil.ItemCallback<Product>() {

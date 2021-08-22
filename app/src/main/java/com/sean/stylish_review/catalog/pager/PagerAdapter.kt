@@ -3,9 +3,7 @@ package com.sean.stylish_review.catalog.pager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.sean.stylish_review.cart.CartFragment
 import com.sean.stylish_review.catalog.CatalogFragment
-import com.sean.stylish_review.home.HomeFragment
 
 
 private val one = 0
@@ -22,9 +20,7 @@ enum class CatalogList(val type: String) {
 class PagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     //pager數量
-    override fun getCount(): Int {
-        return 3
-    }
+    override fun getCount(): Int = CatalogList.values().size
 
     //title名稱
     override fun getPageTitle(position: Int): CharSequence? {
@@ -42,7 +38,7 @@ class PagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         return super.getPageTitle(position)
     }
 
-    //從列舉中取出資料，並使type讀取對應的資料??
+    //呼叫CatalogFragment，當position是1的時候，從enum的裡面取type出來給CatalogFragment
     override fun getItem(position: Int): Fragment {
         return CatalogFragment(
             when (position) {

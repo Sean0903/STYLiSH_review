@@ -44,6 +44,7 @@ class HomeAdapter() : ListAdapter<DataItem, RecyclerView.ViewHolder>(DiffCallbac
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
+            //為每個ViewHolder指定data class
             is HeaderViewHolder ->{
                 val data = getItem(position) as DataItem.Header
                 holder.bind(data)
@@ -73,7 +74,6 @@ class HomeAdapter() : ListAdapter<DataItem, RecyclerView.ViewHolder>(DiffCallbac
         fun bind(item: DataItem.Single) {
             binding.itemSingle = item
             binding.executePendingBindings()
-
         }
     }
 

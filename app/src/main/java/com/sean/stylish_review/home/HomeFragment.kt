@@ -15,7 +15,7 @@ class HomeFragment: Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
 
-    val viewModel: HomeViewModel by lazy {
+    private val viewModel: HomeViewModel by lazy {
         ViewModelProvider(this).get(HomeViewModel::class.java)
     }
 
@@ -23,7 +23,7 @@ class HomeFragment: Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentHomeBinding.inflate(inflater)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.homeFragment = viewModel
 
