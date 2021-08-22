@@ -1,10 +1,14 @@
 package com.sean.stylish_review.home
 
+import android.util.Log
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
+import com.sean.stylish_review.R
 import com.sean.stylish_review.databinding.ItemHeaderBinding
 import com.sean.stylish_review.databinding.ItemMultipleBinding
 import com.sean.stylish_review.databinding.ItemSingleBinding
@@ -20,7 +24,7 @@ sealed class DataItem {
     data class Multiple(val product: Product) : DataItem()
 }
 
-class HomeAdapter() : ListAdapter<DataItem, RecyclerView.ViewHolder>(DiffCallback()) {
+class HomeAdapter(val onClickListener: OnClickListener) : ListAdapter<DataItem, RecyclerView.ViewHolder>(DiffCallback()) {
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
@@ -43,6 +47,7 @@ class HomeAdapter() : ListAdapter<DataItem, RecyclerView.ViewHolder>(DiffCallbac
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+
         when (holder) {
             //為每個ViewHolder指定data class
             is HeaderViewHolder ->{
@@ -52,10 +57,14 @@ class HomeAdapter() : ListAdapter<DataItem, RecyclerView.ViewHolder>(DiffCallbac
             is SingleViewHolder ->{
                 val data = getItem(position) as DataItem.Single
                 holder.bind(data)
+                holder.itemView.setOnClickListener{onClickListener.onClick(data.product)
+                }
             }
             is MultipleViewHolder ->{
                 val data = getItem(position) as DataItem.Multiple
                 holder.bind(data)
+                holder.itemView.setOnClickListener{onClickListener.onClick(data.product)
+                }
             }
         }
     }
@@ -93,5 +102,9 @@ class HomeAdapter() : ListAdapter<DataItem, RecyclerView.ViewHolder>(DiffCallbac
         override fun areContentsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
             return oldItem == newItem
         }
+    }
+
+    class OnClickListener(val clickListener: (product: Product) -> Unit) {
+        fun onClick(product: Product) = clickListener(product)
     }
 }

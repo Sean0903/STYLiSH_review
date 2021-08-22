@@ -56,10 +56,7 @@ data class Product(
     @Json(name = "main_image")
     val mainImage : String,
     val images : List<String>
-): Parcelable {
-    val priceString
-        get() = "$$price"
-}
+): Parcelable
 
 @Parcelize
 data class Color(
